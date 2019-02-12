@@ -3,7 +3,7 @@ import { ScrollView, Text, Image, View, Slider, Button } from 'react-native'
 import { Images } from '../Themes'
 import Mood from '../Components/Mood'
 import Comment from '../Components/Comment'
-
+import UnmindButton from '../Components/UnmindButton'
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
@@ -26,6 +26,7 @@ export default class LaunchScreen extends Component {
 
           <View style={styles.section} >
             <Comment onFinishCallback={(text) => {this.setState({text})}}/>
+            <UnmindButton text="Next"/>
           </View>
         </ScrollView>
       </View>
