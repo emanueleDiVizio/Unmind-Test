@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView, Text, Image, View, Slider, Button } from 'react-native'
 import { Images } from '../Themes'
-import CheckInContainer from './CheckInContainer'
+import InsightsHeader from '../Components/InsightsHeader'
 
 
 // Styles
@@ -18,7 +18,7 @@ export default class LaunchScreen extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <CheckInContainer/>
+        <InsightsHeader/>
       </View>
     )
   }
