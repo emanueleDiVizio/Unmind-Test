@@ -36,7 +36,7 @@ export default class Mood extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.mood}>
-          <MoodFace isHappy={this.state.happiness > 4} isSad={this.state.happiness < 4} />
+          <MoodFace isHappy={this.state.happiness > 4} isSad={this.state.happiness < 4} width={200} height={200} />
         </View>
         <View style={styles.slider}>
           <Slider maximumTrackTintColor="rgb(187,187,187)" minimumTrackTintColor="rgb(187,187,187)" onValueChange={this.onValueChange}

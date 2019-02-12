@@ -8,15 +8,17 @@ import Svg, {
   Rect
 } from 'react-native-svg';
 
-let straightFacePath = "M20 85 L80 85";
-let sadFacePath = "M20 85 Q 50 78 80 85";
-let happyFacePath = "M20 85 Q 50 98 80 85";
+let straightFacePath = "M30 70 L70 70";
+let sadFacePath = "M30 70 Q 50 60 70 70";
+let happyFacePath = "M30 70 Q 50 75 70 70";
 
 export default class MoodFace extends Component {
   // Prop type warnings
   static propTypes = {
     isHappy: PropTypes.bool,
     isSad: PropTypes.bool,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired
   }
 
   // Defaults for props
@@ -28,36 +30,36 @@ export default class MoodFace extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Svg height="100" width="100">
+        <Svg height={this.props.height} width={this.props.width} viewBox="0 0 100 100">
           <Path
-            d="M0 20 Q 20 10 40 20"
+            d="M10 20 Q 25 10 40 20"
             fill="none"
             strokeLinecap="round"
             stroke="rgb(223, 223, 223)"
             strokeWidth="5"
           />
           <Path
-            d="M60 20 Q 80 10 100 20"
+            d="M60 20 Q 75 10 90 20"
             fill="none"
             strokeLinecap="round"
             stroke="rgb(223, 223, 223)"
             strokeWidth="5"
           />
           <Circle
-            cx="20"
-            cy="35"
+            cx="25"
+            cy="30"
             r="5"
             fill="rgb(4, 194, 181)"
           />
           <Circle
-            cx="80"
-            cy="35"
+            cx="75"
+            cy="30"
             r="5"
             fill="rgb(4, 194, 181)"
           />
           <Rect
             x="45"
-            y="50"
+            y="40"
             width="10"
             height="10"
             fill="rgb(223, 223, 223)"

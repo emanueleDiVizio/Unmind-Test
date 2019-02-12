@@ -9,9 +9,9 @@ export default StyleSheet.create({
     alignSelf: 'center',
   },
   slider: {
-    top: 30
+    top: 0
   },
   button: {
-    top: 50
+    top: 30
   }
 })
