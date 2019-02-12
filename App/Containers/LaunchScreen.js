@@ -7,6 +7,7 @@ import InsightItem from '../Components/InsightItem'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
+import InsightContainer from './InsightContainer';
 
 export default class LaunchScreen extends Component {
 
@@ -19,14 +20,7 @@ export default class LaunchScreen extends Component {
   render() {
     return (
       <View style={[styles.mainContainer, { justifyContent: 'center' }]}>
-        <View style={{ justifyContent: 'space-around' }}>
-          <InsightsHeader />
-          <InsightItem />
-          <InsightItem />
-
-          <InsightItem />
-
-        </View>
+        <InsightContainer/>
       </View>
     )
   }
