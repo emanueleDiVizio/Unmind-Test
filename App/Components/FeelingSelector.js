@@ -11,13 +11,16 @@ const addOrRemove = (arr, item) => arr.includes(item) ? arr.filter(i => i !== it
 export default class FeelingSelector extends Component {
   // // Prop type warnings
   static propTypes = {
-    feelings: PropTypes.array
+    feelings: PropTypes.array,
+    onFinishCallback: PropTypes.func
   }
 
   // Defaults for props
   static defaultProps = {
     feelings: ["Depressed", "Optimistic",
-      "Bored", "Happy"]
+      "Bored", "Happy"],
+      onFinishCallback: (feelings) => {}
+
   }
 
   constructor(props) {
@@ -30,17 +33,21 @@ export default class FeelingSelector extends Component {
     this.setState({selectedItems: addOrRemove(this.state.selectedItems, item)})
   }
 
+  _onFinish =() => {
+    this.props.onFinishCallback(this.state.selectedItems)
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           ItemSeparatorComponent={({ highlighted }) => (
-            <View style={{ height: 0.3, color: 'grey' }} />
+            <View style={{ height: 1.5, color: 'rgb(234, 234, 234)' }} />
           )}
           data={this.props.feelings}
           renderItem={({ item }) => <FeelingItem text={item} onToggleSelection={this._onItemToggled} />}
         />
-        <UnmindButton text="Next" />
+        <UnmindButton styles={{top: 8}} text="Next" onPress={this._onFinish} />
       </View>
     )
   }

@@ -1,31 +1,52 @@
 import React, { Component } from 'react'
-import { View, Slider, Button } from 'react-native'
+import PropTypes from 'prop-types';
+import { View, Slider } from 'react-native'
 import styles from './Styles/MoodStyle'
 import MoodFace from './MoodFace'
 import UnmindButton from './UnmindButton'
 
 export default class Mood extends Component {
 
+  // // Prop type warnings
+  static propTypes = {
+    onFinishCallback: PropTypes.func,
+ }
+ //
+ // // Defaults for props
+ static defaultProps = {
+   onFinishCallback: (happiness) => {}
+}
+
+
+
   constructor(props) {
     super(props);
-    this.state = {happiness: 4}
+    this.state = { happiness: 4 }
   }
 
   onValueChange = (value) => {
-    this.setState({happiness: value})
+    this.setState({ happiness: value })
+  }
+
+  _onPress = () => {
+    this.props.onFinishCallback(this.state.happiness)
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ left: 90 }}>
+        <View style={styles.mood}>
           <MoodFace isHappy={this.state.happiness > 4} isSad={this.state.happiness < 4} />
         </View>
-        <Slider maximumTrackTintColor="grey" minimumTrackTintColor="grey" onValueChange={this.onValueChange}
-          value={4}
-          step={1}
-          minimumValue={1} maximumValue={7} />
-        <UnmindButton text="Next" />
+        <View style={styles.slider}>
+          <Slider maximumTrackTintColor="rgb(187,187,187)" minimumTrackTintColor="rgb(187,187,187)" onValueChange={this.onValueChange}
+            value={4}
+            step={1}
+            minimumValue={1} maximumValue={7} />
+        </View>
+
+          <UnmindButton  styles={styles.button} text="Next" onPress={this._onPress} />
+
       </View>
     )
   }

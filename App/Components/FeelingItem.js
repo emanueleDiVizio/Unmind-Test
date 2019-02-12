@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { View, Text, TouchableHighlight } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import styles from './Styles/FeelingItemStyle'
 
 export default class FeelingItem extends Component {
@@ -29,10 +29,10 @@ export default class FeelingItem extends Component {
 
   render () {
     return (
-      <View style={[styles.container, {backgroundColor: this.state.selected ? "red" : "white"}]}>
-          <TouchableHighlight onPress={this._onPressButton} underlayColor="blue">
-        <Text style={styles.text}>{this.props.text}</Text>
-        </TouchableHighlight>
+      <View style={[styles.container, {backgroundColor: this.state.selected ? "rgb(4, 194, 181)" : "white"}]}>
+          <TouchableOpacity onPress={this._onPressButton} underlayColor="blue">
+        <Text style={[styles.text, this.state.selected ? {color: 'white'} : {}]}>{this.props.text}</Text>
+        </TouchableOpacity>
       </View>
     )
   }

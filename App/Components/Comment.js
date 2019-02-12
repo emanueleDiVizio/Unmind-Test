@@ -34,7 +34,7 @@ export default class Comment extends Component {
           onChangeText={(text) => this.setState({ text })}
           value={this.state.text}
         />
-        <UnmindButton text="Finish"/>
+        <UnmindButton styles={{top: 8}} text="Finish" onPress={this._onFinish}/>
       </View>
     )
   }
