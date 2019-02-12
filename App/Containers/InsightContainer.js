@@ -40,12 +40,16 @@ class InsightContainer extends Component {
 
   render() {
     return (
-      <View style={{ justifyContent: 'space-around' }}>
-        <InsightsHeader avgMood={this._calculateAvg(this.state.data)} entries={this.state.data.length}/>
+      <View style={{ justifyContent: 'center' , flex: 4}}>
+      <View >
+
+      <InsightsHeader avgMood={this._calculateAvg(this.state.data)} entries={this.state.data.length}/>
         <FlatList
           data={this.state.data}
           renderItem={({ item }) => (<InsightItem insight={item} />)}
         />
+      </View>
+
       </View>
     )
   }

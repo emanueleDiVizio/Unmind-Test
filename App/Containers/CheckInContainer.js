@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { ScrollView, Text, KeyboardAvoidingView, View } from 'react-native'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+
 
 import Mood from '../Components/Mood'
 import Comment from '../Components/Comment'
@@ -12,6 +14,17 @@ import FeelingSelector from '../Components/FeelingSelector'
 import styles from './Styles/CheckInContainerStyle'
 
 class CheckInContainer extends Component {
+
+  // // Prop type warnings
+  static propTypes = {
+    onFinishCallback: PropTypes.func,
+ }
+ //
+ // // Defaults for props
+ static defaultProps = {
+   onFinishCallback: (result) => {}
+}
+
 
   constructor(props){
     super(props)
@@ -28,6 +41,7 @@ class CheckInContainer extends Component {
 
   _onCommentFinish = (comment) => {
     this.setState({...this.state, comment: {completed: true, value: comment, show: false}})
+    this.props.onFinishCallback(this.state)
   }
 
   render () {
