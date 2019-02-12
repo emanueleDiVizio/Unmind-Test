@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { View, Text, FlatList, Button } from 'react-native'
 import styles from './Styles/FeelingSelectorStyle'
 import FeelingItem from './FeelingItem'
+import UnmindButton from './UnmindButton'
 
 const addOrRemove = (arr, item) => arr.includes(item) ? arr.filter(i => i !== item) : [ ...arr, item ];
 
@@ -39,7 +40,7 @@ export default class FeelingSelector extends Component {
           data={this.props.feelings}
           renderItem={({ item }) => <FeelingItem text={item} onToggleSelection={this._onItemToggled} />}
         />
-        <Button title="NEXT" />
+        <UnmindButton text="Next" />
       </View>
     )
   }

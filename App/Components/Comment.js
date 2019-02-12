@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text, TextInput, Button } from 'react-native'
 import styles from './Styles/CommentStyle'
-import FullButton from './FullButton'
+import UnmindButton from './UnmindButton'
 
 export default class Comment extends Component {
   // // Prop type warnings
@@ -34,6 +34,7 @@ export default class Comment extends Component {
           onChangeText={(text) => this.setState({ text })}
           value={this.state.text}
         />
+        <UnmindButton text="Finish"/>
       </View>
     )
   }

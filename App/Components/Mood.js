@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Slider, Button } from 'react-native'
 import styles from './Styles/MoodStyle'
 import MoodFace from './MoodFace'
+import UnmindButton from './UnmindButton'
 
 export default class Mood extends Component {
 
@@ -24,7 +25,7 @@ export default class Mood extends Component {
           value={4}
           step={1}
           minimumValue={1} maximumValue={7} />
-        <Button title="NEXT" />
+        <UnmindButton text="Next" />
       </View>
     )
   }

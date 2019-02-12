@@ -8,7 +8,7 @@ export default StyleSheet.create({
     borderRadius: 4
   },
   buttonText: {
-    margin: 18,
+    margin: 16,
     textAlign: 'center',
     color: 'grey',
     fontSize: Fonts.size.medium,
