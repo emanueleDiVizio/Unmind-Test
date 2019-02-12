@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, Text, Image, View, Slider, Button } from 'react-native'
 import { Images } from '../Themes'
 import Mood from '../Components/Mood'
+import FeelingSelector from '../Components/FeelingSelector'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -18,7 +19,7 @@ export default class LaunchScreen extends Component {
           </View>
 
           <View style={styles.section} >
-            <Mood/>
+            <FeelingSelector/>
           </View>
 
         </ScrollView>
