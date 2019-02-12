@@ -13,21 +13,6 @@ import styles from './Styles/InsightContainerStyle'
 class InsightContainer extends Component {
   constructor (props) {
     super(props)
-    this.state = {data: [{
-      day: "4",
-      month: "OCT",
-      time: "11:10",
-      feelings: ["Anxious", "Angrys"],
-      comment: "Feeling good...",
-      mood: 2
-    }, {
-      day: "4",
-      month: "OCT",
-      time: "11:10",
-      feelings: ["Anxious", "Angrys"],
-      comment: "Feeling good...",
-      mood: 7
-    }]}
   }
 
   _calculateAvg = (arr) => {
@@ -40,12 +25,13 @@ class InsightContainer extends Component {
 
   render() {
     return (
-      <View style={{ justifyContent: 'center' , flex: 4}}>
-      <View >
-
-      <InsightsHeader avgMood={this._calculateAvg(this.state.data)} entries={this.state.data.length}/>
+      <View style={{  flex: 4}}>
+      <View style={{marginTop: 64}} >
+      <InsightsHeader avgMood={this._calculateAvg(this.props.data)} entries={this.props.data.length}/>
+      </View>
+      <View>
         <FlatList
-          data={this.state.data}
+          data={this.props.data}
           renderItem={({ item }) => (<InsightItem insight={item} />)}
         />
       </View>
@@ -57,6 +43,7 @@ class InsightContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    data: state.mood.moodHistory
   }
 }
 

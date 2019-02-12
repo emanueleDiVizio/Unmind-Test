@@ -8,7 +8,7 @@ import Mood from '../Components/Mood'
 import Comment from '../Components/Comment'
 import FeelingSelector from '../Components/FeelingSelector'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import Actions from '../Redux/MoodStoreRedux'
 
 // Styles
 import styles from './Styles/CheckInContainerStyle'
@@ -40,8 +40,13 @@ class CheckInContainer extends Component {
   }
 
   _onCommentFinish = (comment) => {
-    this.setState({...this.state, comment: {completed: true, value: comment, show: false}})
-    this.props.onFinishCallback(this.state)
+
+    var newState = {...this.state, comment: {completed: true, value: comment, show: false}};
+    this.setState(newState)
+
+      this.props.onFinishCallback(newState)
+      this.props.onFinish(newState)
+
   }
 
   render () {
@@ -70,6 +75,7 @@ class CheckInContainer extends Component {
   
   const mapDispatchToProps = (dispatch) => {
     return {
+      onFinish: (data) => dispatch(Actions.checkIn(data))
     }
   }
   
