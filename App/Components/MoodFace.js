@@ -15,16 +15,14 @@ let happyFacePath = "M30 70 Q 50 75 70 70";
 export default class MoodFace extends Component {
   // Prop type warnings
   static propTypes = {
-    isHappy: PropTypes.bool,
-    isSad: PropTypes.bool,
+    happiness: PropTypes.number,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired
   }
 
   // Defaults for props
   static defaultProps = {
-    isHappy: false,
-    isSad: false
+    happiness: 4,
   }
 
   render() {
@@ -65,7 +63,7 @@ export default class MoodFace extends Component {
             fill="rgb(223, 223, 223)"
           />
           <Path
-            d={this.props.isSad ? sadFacePath : (this.props.isHappy ? happyFacePath : straightFacePath)}
+            d={this.props.happiness < 4 ?  sadFacePath : (this.props.happiness > 4 ? happyFacePath : straightFacePath)}
             fill="none"
             stroke="rgb(4, 194, 181)"
             strokeLinecap="round"
